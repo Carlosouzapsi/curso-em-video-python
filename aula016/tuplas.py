@@ -35,7 +35,7 @@ print(sorted(lanche))  # n muda a tupla original
 a = (2, 5, 4)
 b = (5, 8, 1, 2)
 c = b + a
-print(c)  # concatena as tuplas a e b
+print(c)  # concatena as tuplas a e b em uma nova tupla
 
 # contando recorrencia de elemento em uma tupla:
 print(c.count(5))  # qtd vezes que aparece
