@@ -65,3 +65,13 @@ b[2] = 8
 print("O python vai mexer nas duas listas!!! =O")
 print(f'Lista A: {a}')
 print(f'Lista B: {b}')
+
+# fatiando e clonando uma lista inteira com python
+a = [2, 3, 4, 7]
+b = a[:]
+print('usei o a[:] pra clonar a lista b antes de mexer em qualquer coisa!')
+b[2] = 8
+print(
+    "O python NÃO vai mexer nas duas listas!!! depois de ter copiado primeiro [:]")
+print(f'Lista A: {a}')
+print(f'Lista B: {b}')
