@@ -13,7 +13,7 @@ print("-=" * 30)
 print(f'{"No":<4}{"NOME":<10}{"MEDIA":>8}')
 print("-" * 30)
 for pos, a in enumerate(alunos):
-    print(f"{pos:<4}{a[0]:<10}{a[2]:>8}")
+    print(f"{pos:<4}{a[0]:<10}{a[2]:>8.1f}")
 while True:
     aluno = int(input("Mostrar nota de qual aluno? (999 interrompe): "))
     if aluno == 999:
@@ -23,6 +23,6 @@ while True:
             print("-=" * 30)
             print(f'{"No":<4}{"NOME":<10}{"MEDIA":>8}')
             print("-" * 30)
-            print(f"{pos:<4}{a[0]:<10}{a[2]:>8}")
+            print(f"{pos:<4}{a[0]:<10}{a[2]:>8.1f}")
             break
 print('Programa encerrado com sucesso! ')
