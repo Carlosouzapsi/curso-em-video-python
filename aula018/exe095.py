@@ -1,34 +1,47 @@
 jogador = {}
 jogadores = []
 gols = []
-tot_gols = 0
+partidas = []
 while True:
+    jogador.clear()
     jogador['nome'] = str(input("Nome do jogador: "))
-    qtd_partidas = int(input(f"Quantas partidas {jogador['nome']} jogou? "))
-    for g in range(0, qtd_partidas):
-        qtd_gols = int(input(f" Quantos gols na partida {g}? "))
-        tot_gols += qtd_gols
-        gols.append(qtd_gols)
-    jogador['gols'] = gols[:]
-    jogador['total'] = tot_gols
+    tot = int(input(f"Quantas partidas {jogador['nome']} jogou? "))
+    partidas.clear()
+    for g in range(0, tot):
+        partida = int(input(f" Quantos gols na partida {g}? "))
+        partidas.append(partida)
+    jogador['gols'] = partidas[:]
+    jogador['total'] = sum(partidas)
     jogadores.append(jogador.copy())
-    gols.clear()
-    # print(f"printei aqui: {jogadores}")
-    continuar = str(input(f"Quer continuar? ")).upper().strip()
-    if continuar in "N":
+    while True:
+        continuar = str(input(f"Quer continuar? ")).upper().strip()[0]
+        if continuar in "SN":
+            break
+        print("ERRO! Responda apenas S ou N.")
+    if continuar == "N":
         break
 print("-=" * 30)
-print(f'{"cod":<4}{"nome":<10}{"gols":>4}{"total":>8}')
-print(jogadores)
-# for i, v in enumerate(jogador['gols']):
-
-# for k, v in jogador.items():
-
-# Outra forma de exibir idades acima da media:
-# for p in pessoas:
-#     if p['idade'] >= media:
-#         print("  ")
-#         for k, v in p.items():
-#             print(f"{k} = {v}; ", end="")
-#         print()
-# print("<< ENCERRADO >>")
+print("cod ", end="")
+for i in jogador.keys():
+    print(f"{i:<15}", end="")
+print()
+print("-" * 40)
+for k, v in enumerate(jogadores):
+    print(f"{k:>3} ", end="")
+    for d in v.values():
+        print(f"{str(d):<15}", end="")
+    print()
+print("-" * 40)
+while True:
+    busca = int(input("Mostrar dados de qual jogador? (999 para parar) "))
+    if busca == 999:
+        break
+    if busca >= len(jogadores):
+        print(f"Não existe jogador com código {busca}!")
+    else:
+        print("-- LEVANTAMENTO DO JOGADOR",
+              jogadores[busca]["nome"], ":")
+        for i, g in enumerate(jogadores[busca]['gols']):
+            print(f" No {i + 1} fez {g} gols. ")
+        print("-" * 40)
+print("<<< VOLTE SEMPRE >>>")
