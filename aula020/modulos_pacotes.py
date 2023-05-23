@@ -7,3 +7,4 @@
 # Pasta uteis é pacote
 # Pastas dentro de uteis são módulo fazem n coisas
 # cada pacote é um modulo que possui um __init__.py
+# cada pacote possui um __init__.py proprio
